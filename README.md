@@ -118,4 +118,4 @@ Se crea una carpeta en /var/log/nginx_chameleon, dentro de dicha carpeta se encu
 
 Ejemplo de screenshot en grafana:
 
-![Screenshot](monitoring.png) 
+![Screenshot](monitoring.PNG) 
