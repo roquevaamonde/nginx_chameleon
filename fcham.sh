@@ -145,19 +145,19 @@ while true
     tin=$(date +%s)
     hist=$workdire/$hist_line
     tmp=$workdire/$tmp_line
-    if [[ $(scan_log $nginx_container $tmp $hist) == 1 ]]
+    if [[ $(scan_log $nginx_container $tmp $hist $nginx_log_path) == 1 ]]
       then
         data=$(extraer_datos $tmp)
         IP=$(echo $data | awk -F'+' '{ print $1 }')
         REQUEST=$(echo $data | awk -F'+' '{ print $2 }' | tr ' ' '_')
         ERROR=$(echo $data | awk -F'+' '{ print $3 }')
         HEADERS=$(echo $data | awk -F'+' '{ print $4 }' | tr ' ' '_')
-        echo "Analizando $IP"
         echo ${ip_whitelist[@]} | grep $IP > /dev/null 2> /dev/null
         if [[ $? == 0 ]]
           then
             continue
         fi
+        echo "Analizando $IP"  
         analizar_elemento $(echo $rfl | tr ' ' '_') $REQUEST $IP $REQUEST $HEADERS "request"
         analizar_elemento $(echo $efl | tr ' ' '_') $ERROR $IP $REQUEST $HEADERS "error"
         analizar_elemento $(echo $hfl | tr ' ' '_') $HEADERS $IP $REQUEST $HEADERS "header"
