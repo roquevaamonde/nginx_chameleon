@@ -26,14 +26,6 @@ hist_line="flinea"
 
 # Functions
 
-comprobar_dir_logs() {
-  ls $workdire > /dev/null 2> /dev/null
-  if [[ $? != 0  ]]
-    then
-     mkdir $workdire
-     mkdir $workdire/$word_dir
-  fi
-}
 
 scan_log() {
 
