@@ -6,6 +6,6 @@ error;403;5
 error;404;5
 header;python-request;0
 header;zgrab;0
-whitelist;192.168.1.45
-whitelist;192.168.1.1
-whitelist;172.18.0.1
+whitelist;192.168.1.12
+whitelist;192.168.1.90
+whitelist;162.87.0.23
