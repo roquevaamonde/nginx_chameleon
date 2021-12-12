@@ -1,0 +1,11 @@
+request;wp-admin;0 
+request;wp-login;0
+request;xmlrpc;0
+error;400;5
+error;403;5
+error;404;5
+header;python-request;0
+header;zgrab;0
+whitelist;192.168.1.45
+whitelist;192.168.1.1
+whitelist;172.18.0.1
