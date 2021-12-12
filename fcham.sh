@@ -123,8 +123,6 @@ analizar_elemento() {
 }
 
 
-comprobar_dir_logs
-
 # CSV VARIABLES
 
 rfl=$(cat $rules_path/rules.csv | grep request)
