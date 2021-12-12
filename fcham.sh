@@ -18,6 +18,7 @@ export workdire="/var/log/nginx_chameleon"
 export word_dir="words_ban_log"
 export nginx_log=$workdire/nginx.log
 export int_log=$workdire/cham_ban_att.log
+rules_path=/etc/nginx_chameleon
 tmp_line="ftmp.linea"
 hist_line="flinea"
 
@@ -134,10 +135,10 @@ comprobar_dir_logs
 
 # CSV VARIABLES
 
-rfl=$(cat rules.csv | grep request)
-hfl=$(cat rules.csv | grep header)
-efl=$(cat rules.csv | grep error)
-ip_whitelist=$(cat rules.csv | grep "whitelist" | awk -F';' '{ print $2 }')
+rfl=$(cat $rules_path/rules.csv | grep request)
+hfl=$(cat $rules_path/rules.csv | grep header)
+efl=$(cat $rules_path/rules.csv | grep error)
+ip_whitelist=$(cat $rules_path/rules.csv | grep "whitelist" | awk -F';' '{ print $2 }')
 
 while true
   do
