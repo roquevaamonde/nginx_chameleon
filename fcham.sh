@@ -107,11 +107,11 @@ analizar_elemento() {
                 then
                   time=1
               fi
-              echo "[$(date '+%d-%m-%Y %H:%M:%S')] BANED: $IP RULE: [$tipo;$word]  ATTEMPTS: $time ELEMENT:$elemento" >> $int_log
+              echo "[$(date '+%d-%m-%Y %H:%M:%S')] BANED:$IP RULE:[$tipo;$wordd]  ATTEMPTS:$time ELEMENT:$elemento" >> $int_log
               banear_ip $IP
-              echo "[$(date '+%d-%m-%Y %H:%M:%S')] BANNED: $IP TIMES:$time LAST_REQUEST:${REQUEST[@]} LAST_HEADER:${HEADERS[@]}]" >> $workdire/cham_ban.log
+              echo "[$(date '+%d-%m-%Y %H:%M:%S')] BANNED:$IP RULE:[$tipo;$wordd] TIMES:$time LAST_REQUEST:${REQUEST[@]} LAST_HEADER:${HEADERS[@]}]" >> $workdire/cham_ban.log
           else
-              echo "[$(date '+%d-%m-%Y %H:%M:%S')] ATTEMPT:$IP  RULE:[$tipo;$word] REST_ATTEMPTS:$(($(($time - 1)) - $veces)) ELEMENT:$elemento"   >> $int_log
+              echo "[$(date '+%d-%m-%Y %H:%M:%S')] ATTEMPT:$IP  RULE:[$tipo;$wordd] REST_ATTEMPTS:$(($(($time - 1)) - $veces)) ELEMENT:$elemento"   >> $int_log
               echo $IP >> $word_ban_file
           fi
         else
