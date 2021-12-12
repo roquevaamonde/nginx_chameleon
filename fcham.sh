@@ -115,7 +115,7 @@ analizar_elemento() {
                   time=1
               fi
               echo "Se banea $IP por introducir $time veces la palabra $wordd en su peticion" >> $int_log
-              #banear_ip $IP
+              banear_ip $IP
               echo "[$(date '+%d-%m-%Y %H:%M:%S')] MESSAGE: BANNED [IP: $IP, MATCH_TYPE: $tipo, MATCH: $wordd, TIMES: $time, LAST_REQUEST: ${REQUEST[@]}, LAST_HEADER: ${HEADERS[@]}]" >> $workdire/cham_ban.log
           else
               echo "Se resta una oportunidad a $IP por utilizar la palabra $wordd. Le quedan $(($(($time - 1)) - $veces)) intentos"   >> $int_log
