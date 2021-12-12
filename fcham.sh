@@ -67,13 +67,13 @@ extraer_datos() {
     if [[ $is_error == 1 ]]
       then
         ip=$(cat $linea | awk -F':' '{ print $6 }' | awk '{ print $1 }' | awk -F',' '{ print $1 }')
-        requested=$(cat $linea | awk -F':' '{ print $8 }' | awk -F',' '{ print $1 }' | tr "\$" "" | tr "\`" "")
+        requested=$(cat $linea | awk -F':' '{ print $8 }' | awk -F',' '{ print $1 }' | tr "\$" "_" | tr "\`" "_")
         headers="[error]"
         error="[error]"
     else
         ip=$(cat $linea | awk -F'\"' '{ print $4 }' | awk '{ print $1 }')
-        requested=$(cat $linea | awk -F'\"' '{ print $5 }' | tr "\$" "" | tr "\`" "")
-        headers=$(cat $linea | awk -F'\"' '{ print $9 }' | tr "\$" "" | tr "\`" "")
+        requested=$(cat $linea | awk -F'\"' '{ print $5 }' | tr "\$" "_" | tr "\`" "_")
+        headers=$(cat $linea | awk -F'\"' '{ print $9 }' | tr "\$" "_" | tr "\`" "_")
         error=$(cat $linea | awk -F'\"' '{ print $6 }' | awk '{ print $1 }')
     fi
     respuesta="$ip+$requested+$error+$headers"
@@ -105,7 +105,7 @@ analizar_elemento() {
         time=$(echo $word | awk -F';' '{ print $3 }')
         wordd=$(echo $word | awk -F';' '{ print $2 }')
         word_ban_file=$workdire/$word_dir/$wordd.ban.log
-        echo $elemento | tr "\$" "" | tr "\`" "" | grep $wordd > /dev/null 2> /dev/null
+        echo $elemento | tr "\$" "_" | tr "\`" "_" | grep $wordd > /dev/null 2> /dev/null
         if [[ $? == 0 ]]
           then
           veces=$(grep $IP $word_ban_file 2> /dev/null | wc -l)
