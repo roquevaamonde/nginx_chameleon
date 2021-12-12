@@ -18,8 +18,6 @@ comprobar_directorios() {
 comprobar_dir_logs() {
   workdire=$1
   word_dir=$2
-
-
   ls $workdire > /dev/null 2> /dev/null
   if [[ $? != 0  ]]
     then
