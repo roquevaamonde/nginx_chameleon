@@ -85,7 +85,7 @@ nginx_container="478249807b86913e678715627e0a3f28ec6eb70975c1995e47121e4e8b5da76
      
      Ejemplo:
      
-     `header;python-request;0`
+     `whitelist;172.3.6.87`
 
 
 
